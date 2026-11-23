@@ -1,5 +1,19 @@
 # @opennextjs/cloudflare
 
+## 1.20.19
+
+### Patch Changes
+
+- [#1509](https://github.com/opennextjs/opennextjs-cloudflare/pull/1509) [`e664bac`](https://github.com/opennextjs/opennextjs-cloudflare/commit/e664bac6ef1d75b625fff832adf6f78e95e5ff1c) Thanks [@vicb](https://github.com/vicb)! - chore: bump glob to v14 to drop the vulnerable minimatch 10 dependency
+
+  `glob@13` depends on `minimatch@10`, which is affected by GHSA-g3hv-75wg-m249 and has no patched 10.x release. `glob@14` uses `minimatch@11`.
+
+- [#1507](https://github.com/opennextjs/opennextjs-cloudflare/pull/1507) [`cc95230`](https://github.com/opennextjs/opennextjs-cloudflare/commit/cc95230d18428593a5ad70dd0d43894acd923143) Thanks [@vicb](https://github.com/vicb)! - fix: answer requests with a `Cookie` header in the Node.js middleware
+
+  Since 1.20.18, with a `proxy.ts` (or a Node.js runtime `middleware.ts`), every request with a `Cookie` header answered 500 with `TypeError: Cannot read properties of undefined (reading 'parse')`.
+
+  The `@opennextjs/aws` files were no longer bundled as ES modules, and the default import of `cookie@1` was `undefined`.
+
 ## 1.20.18
 
 ### Patch Changes
